@@ -1,0 +1,88 @@
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    background-image: linear-gradient(to bottom, rgb(214, 222, 145), rgb(186, 223, 102), rgb(214, 222, 145));
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    user-select: none;
+}
+
+.todoAdd {
+    display: inline-block;
+    position: relative;
+    top: 2px;
+    left: 50%;
+    -ms-transform: translate(-50%, 2px);
+    transform: translate(-50%, 2px);
+}
+
+.todoAdd input {
+    width: 300px;
+    height: 50px;
+    font-size: 2em;
+    padding: 20px;
+    float: left;
+    margin-right: 10px;
+    outline: none;
+    border: none;
+    border-radius: 50px;
+}
+
+.todoAdd button {
+    background-color: rgb(100, 149, 237);
+    width: 80px;
+    height: 50px;
+    color: cornsilk;
+    font-size: 2em;
+    float: right;
+    margin-left: 10px;
+    outline: none;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.todoAdd button:hover {
+    background-color: rgb(76, 130, 230);
+}
+
+.todoAdd button:active {
+    background-color: rgb(54, 104, 197);
+}
+
+.todoItem {
+    position: absolute;
+    width: 100%;
+    height: auto;
+}
+
+#todoItems li {
+    position: relative;
+    font-size: 1.5em;
+    background-color: rgba(219, 233, 157, 0.5);
+    border-radius: 50px;
+    padding: 10px;
+    margin: 5px;
+}
+
+.removeTodo {
+    position: absolute;
+    font-size: 1em;
+    right: 20px;
+    padding: 4px;
+    color: rgb(220, 20, 60);
+    background-color: rgba(255, 88, 88, 0.5);
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.removeTodo:hover {
+    background-color: rgba(255, 88, 88, 0.75);
+}
+
+.removeTodo:active {
+    background-color: rgba(255, 88, 88, 1);
+}
