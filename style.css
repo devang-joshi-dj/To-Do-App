@@ -3,7 +3,7 @@
 }
 
 html, body {
-    background-image: linear-gradient(to bottom, rgb(214, 222, 145), rgb(186, 223, 102), rgb(214, 222, 145));
+    background-image: linear-gradient( to bottom, rgb(214, 222, 145), rgb(186, 223, 102), rgb(214, 222, 145));
     margin: 0;
     width: 100%;
     height: 100%;
@@ -33,6 +33,7 @@ html, body {
 
 .todoAdd button {
     background-color: rgb(100, 149, 237);
+    position: relative;
     width: 80px;
     height: 50px;
     color: cornsilk;
@@ -53,6 +54,11 @@ html, body {
     background-color: rgb(54, 104, 197);
 }
 
+#todoItems {
+    padding: 0;
+    list-style-type: none;
+}
+
 .todoItem {
     position: absolute;
     width: 100%;
@@ -60,23 +66,55 @@ html, body {
 }
 
 #todoItems li {
+    display: block;
     position: relative;
-    font-size: 1.5em;
+    min-height: 55px;
+    max-height: auto;
+    font-size: 1.8em;
     background-color: rgba(219, 233, 157, 0.5);
     border-radius: 50px;
     padding: 10px;
     margin: 5px;
 }
 
+#todoItems li:after {
+    content: "";
+    display: block;
+    height: 0;
+    clear: both;
+}
+
+.addedTodoValue {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    width: 90%;
+    height: auto;
+    position: relative;
+    word-wrap: break-word;
+    float: left;
+}
+
 .removeTodo {
-    position: absolute;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    width: 7%;
+    height: 38.4px;
+    position: relative;
+    text-align: center;
     font-size: 1em;
-    right: 20px;
-    padding: 4px;
     color: rgb(220, 20, 60);
     background-color: rgba(255, 88, 88, 0.5);
     border-radius: 50px;
+    float: right;
+    right: 20px;
+    overflow: hidden;
     cursor: pointer;
+}
+
+.removeTodo span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 }
 
 .removeTodo:hover {
@@ -85,4 +123,96 @@ html, body {
 
 .removeTodo:active {
     background-color: rgba(255, 88, 88, 1);
+}
+
+@media only screen and (max-width: 1100px) {
+    .removeTodo span {
+        font-size: 0.8em;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .addedTodoValue {
+        width: 87%;
+    }
+    .removeTodo span {
+        font-size: 0.6em;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .addedTodoValue {
+        width: 85%;
+    }
+    .removeTodo {
+        position: relative;
+        border-radius: 0;
+        margin-top: 7.2px;
+        font-size: 1.5em;
+        height: 24px;
+    }
+    .removeTodo span {
+        visibility: hidden;
+    }
+    .removeTodo span:after {
+        visibility: visible;
+        content: "X";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+}
+
+@media only screen and (max-width: 420px) {
+    .todoAdd input {
+        width: 240px;
+        font-size: 1.5em;
+        margin-right: 5px;
+    }
+    .todoAdd button {
+        background-color: rgb(100, 149, 237);
+        width: 50px;
+        font-size: 1em;
+        margin-left: 5px;
+    }
+    .addedTodoValue {
+        width: 82%;
+    }
+}
+
+@media only screen and (max-width: 300px) {
+    .todoAdd input {
+        width: 200px;
+    }
+    .addedTodoValue {
+        width: 82%;
+    }
+    .removeTodo {
+        font-size: 1em;
+        font-weight: bold;
+    }
+}
+
+@media only screen and (max-width: 280px) {
+    .todoAdd input {
+        width: 120px;
+        margin-right: 0;
+        font-size: 18px;
+    }
+    .todoAdd button {
+        width: 30px;
+        border-radius: 0;
+        font-size: 0.8em;
+        margin-left: 0;
+    }
+    .addedTodoValue {
+        width: 75%;
+    }
+    .removeTodo {
+        font-size: 1em;
+        font-weight: bold;
+        width: 10%;
+    }
 }
