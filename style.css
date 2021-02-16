@@ -98,9 +98,19 @@ html, body {
     clear: both;
 }
 
+.checkbox {
+    float: left;
+    margin-top: 12px;
+    margin-bottom: 0px;
+    position: relative;
+    height: 22px;
+    width: 22px;
+    background-color: #eee;
+}
+
 .addedTodoValue {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    width: 90%;
+    width: 87%;
     height: auto;
     position: relative;
     word-wrap: break-word;
@@ -152,17 +162,17 @@ html, body {
 }
 
 @media only screen and (max-width: 900px) {
-    .addedTodoValue {
-        width: 87%;
-    }
     .removeTodo span {
         font-size: 0.6em;
+    }
+    .addedTodoValue {
+        width: 85%;
     }
 }
 
 @media only screen and (max-width: 700px) {
     .addedTodoValue {
-        width: 85%;
+        width: 80%;
     }
     .removeTodo {
         position: relative;
@@ -198,7 +208,7 @@ html, body {
         margin-left: 5px;
     }
     .addedTodoValue {
-        width: 82%;
+        width: 75%;
     }
 }
 
@@ -209,6 +219,9 @@ html, body {
     .addedTodoValue {
         width: 82%;
     }
+    .addedTodoValue {
+        width: 65%;
+    }
     .removeTodo {
         font-size: 1em;
         font-weight: bold;
@@ -218,17 +231,15 @@ html, body {
 @media only screen and (max-width: 280px) {
     .todoAdd input {
         width: 120px;
-        margin-right: 0;
         font-size: 18px;
     }
     .todoAdd button {
         width: 30px;
         border-radius: 0;
         font-size: 0.8em;
-        margin-left: 0;
     }
     .addedTodoValue {
-        width: 75%;
+        width: 50%;
     }
     .removeTodo {
         font-size: 1em;

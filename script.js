@@ -29,11 +29,20 @@ const addTask = () => {
         if (!tasks.includes(task)) {
             tasks.push(task);
 
+            // to create checkbox
+            const todoItemCheckBox = document.createElement("input");
+            todoItemCheckBox.type = "checkbox";
+            todoItemCheckBox.name = "name";
+            todoItemCheckBox.value = "";
+            todoItemCheckBox.className = "checkbox";
+
+            // to create text node
             const todoItemValue = document.createElement("span");
             todoItemValue.className = "addedTodoValue";
             const addValue = document.createTextNode(task);
             todoItemValue.appendChild(addValue);
 
+            // to create remove button
             const todoRemove = document.createElement("div");
             const todoRemoveElement = document.createElement("span")
             const todoRemoveElementValue = document.createTextNode("Done");
@@ -41,8 +50,10 @@ const addTask = () => {
             todoRemove.className = "removeTodo";
             todoRemove.appendChild(todoRemoveElement);
 
+            // to create li tag and appending everything in it
             const todoItem = document.createElement("li");
             todoItem.className = "addedTodo";
+            todoItem.appendChild(todoItemCheckBox);
             todoItem.appendChild(todoItemValue);
             todoItem.appendChild(todoRemove);
 
@@ -57,6 +68,20 @@ const addTask = () => {
 
                 document.getElementById("task").focus();
             }, false);
+
+            document.getElementsByClassName("checkbox")[i].addEventListener("click", function () {
+                let nextSibling = this.nextElementSibling;
+                if (this.checked) {
+                    nextSibling.style.setProperty("text-decoration", "line-through");
+                    nextSibling.style.setProperty("color", "#287D7D");
+                } else {
+                    nextSibling.style.setProperty("text-decoration", "none");
+                    nextSibling.style.setProperty("color", "black");
+                }
+
+                document.getElementById("task").focus();
+            }, false);
+
             i++;
             document.getElementById("task").value = "";
         }
