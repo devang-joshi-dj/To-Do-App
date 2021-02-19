@@ -22,7 +22,7 @@ window.onload = () => {
 
 // following are the variables important to store tasks in page and in array
 let i = 0;
-var tasks = [];
+let tasks = [];
 
 const addTask = () => {
     // function to print task in page and add task in array by creating nodes and printing them and also to check whether if that task already exists in the list and atlast gives focus backs to input field
