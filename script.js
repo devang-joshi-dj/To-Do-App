@@ -1,17 +1,21 @@
 "use strict";
 
+// variables declaration to be used in the code
+const taskInput = document.querySelector('#task');
+const taskBtn = document.querySelector('#addTask');
+
 window.onload = () => {
     // following commands execute on page load
-    document.getElementById("task").value = "";
-    document.getElementById("task").focus(); // Sets the focus on input field on page load
+    taskInput.value = "";
+    taskInput.focus(); // Sets the focus on input field on page load
 
-    document.getElementById("addTask").addEventListener("click", addTask); // executes addTask function when Add Button is clicked
+    taskBtn.addEventListener("click", addTask); // executes addTask function when Add Button is clicked
 
-    document.getElementById("task").addEventListener("keyup", function (event) { // function to explicitly click on Add button so it would execute addTask button whenever Enter key is presed
+    taskInput.addEventListener("keyup", function (event) { // function to explicitly click on Add button so it would execute addTask button whenever Enter key is presed
         // Number 13 is the "Enter" key on the keyboard
         if (event.keyCode === 13) {
             event.preventDefault();
-            document.getElementById("addTask").click();
+            taskBtn.click();
         }
     });
 };
@@ -22,7 +26,7 @@ var tasks = [];
 
 const addTask = () => {
     // function to print task in page and add task in array by creating nodes and printing them and also to check whether if that task already exists in the list and atlast gives focus backs to input field
-    let task = document.getElementById("task").value;
+    let task = taskInput.value;
     task = task.trim();
     task = task.charAt(0).toUpperCase() + task.slice(1);
     if (task != "") {
@@ -66,7 +70,7 @@ const addTask = () => {
                 const index = tasks.indexOf(task);
                 tasks.splice(index, 1);
 
-                document.getElementById("task").focus();
+                taskInput.focus();
             }, false);
 
             document.getElementsByClassName("checkbox")[i].addEventListener("click", function () {
@@ -79,16 +83,16 @@ const addTask = () => {
                     nextSibling.style.setProperty("color", "black");
                 }
 
-                document.getElementById("task").focus();
+                taskInput.focus();
             }, false);
 
             i++;
-            document.getElementById("task").value = "";
+            taskInput.value = "";
         }
         else {
             alert("Task Already Exists");
-            document.getElementById("task").select();
+            taskInput.select();
         }
     }
-    document.getElementById("task").focus();
+    taskInput.focus();
 };
